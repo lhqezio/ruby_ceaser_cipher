@@ -1,22 +1,22 @@
 def ceaser_key(text,keys)
-    new_text=""
     text.split('').each {
         |char|
         temp_ascii=char.ord
         shifted=temp_ascii+keys
         if(temp_ascii>=65&&temp_ascii<=90)
             if(shifted>90)
-                shifted=65+shifted%90-1
+                shifted=64+shifted%90
             end
-            new_text.concat(shifted.chr)
+            new_char=shifted.chr
         elsif(temp_ascii>=97&&temp_ascii<=122)
             if(shifted>122)
-                shifted=97+shifted%122-1
+                shifted=96+shifted%122-1
             end
-            new_text.concat(shifted.chr)
+            new_char=shifted.chr
         else
-            new_text.concat(char)
+            new_char=char
         end
+        new_text.concat(new_char)
     }
     new_text
 end
